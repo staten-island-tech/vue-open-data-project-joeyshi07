@@ -8,16 +8,26 @@ import TheWelcome from '../components/TheWelcome.vue'
   </main>
 </template> -->
 <template>
-  <div class="card" v-for="(score,index) in satScores" :key = </div>
+  <div class="card" v-for="(index, school) in highSchool" :key="school.school_name"></div>
+  <h2>{{ school.school_name }}</h2>
+  <h3>{{ index + 1 }}</h3>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-const satScores = ref('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
+const highSchool = ref('')
+const schoolScores = ref('https://data.cityofnewyork.us/resource/dw8c-pxy2.json')
+
 async function getData() {
-  let res = await fetch('')
-  let data = await res.json()
-  satScores.value = data.results
+  try {
+    let res = await fetch(schoolScores)
+    let data = await res.json()
+    data = highSchool.value
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('Error fetching', error)
+  }
 }
 
 onMounted(() => {
@@ -26,3 +36,11 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped></style>
+
+<!--
+- radar chart for grades in progress, performance, env, college readiness to show each school 
+- avg math and avg english 
+- percentile rank and overall score charts from best to worst 
+- ofc all of them can be filtered by borough 
+
+-->
