@@ -1,30 +1,27 @@
-<!-- <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
-</template> -->
-<template>
-  <div class="card" v-for="(index, school) in highSchool" :key="school.school_name"></div>
-  <h2>{{ school.school_name }}</h2>
-  <h3>{{ index + 1 }}</h3>
+  <div>
+    <SchoolCard
+      v-for="(school, index) in highSchool"
+      :key="school.school_name"
+      :school="school"
+      :index="index"
+    />
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-const highSchool = ref('')
-const schoolScores = ref('https://data.cityofnewyork.us/resource/dw8c-pxy2.json')
+import SchoolCard from '../components/DataCards.vue'
+
+const highSchool = ref([])
+const schoolScores = 'https://data.cityofnewyork.us/resource/dw8c-pxy2.json'
 
 async function getData() {
   try {
     let res = await fetch(schoolScores)
     let data = await res.json()
-    data = highSchool.value
+    highSchool.value = data
     console.log(data)
-    return data
   } catch (error) {
     console.error('Error fetching', error)
   }
@@ -34,8 +31,6 @@ onMounted(() => {
   getData()
 })
 </script>
-
-<style lang="scss" scoped></style>
 
 <!--
 - radar chart for grades in progress, performance, env, college readiness to show each school 
