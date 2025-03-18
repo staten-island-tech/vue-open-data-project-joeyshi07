@@ -15,6 +15,7 @@ import { useRoute } from 'vue-router'
 import SchoolCard from '../components/DataCards.vue'
 
 const highSchool = ref([])
+const scoreData = ref([])
 
 const schoolScores = 'https://data.cityofnewyork.us/resource/dw8c-pxy2.json'
 
@@ -25,16 +26,18 @@ async function getData() {
     highSchool.value = data
     console.log(data)
 
-    const scoreData = ref([])
-    data.forEach((item) => {
-      const school = item.school_name
-      const progress = item.progress_grade
-      const performance = item.performance_grade
-      const env = item.environment_grade
-      const college = item.college_and_career_readiness
-    })
-    scoreData.push({ school, progress, performance, env, college })
-    console.log(scoreData)
+    // data.forEach((item) => {
+    //   const schoolScores = {
+    //     school: item.school_name,
+    //     progress: item.progress_grade,
+    //     performance: item.performance_grade,
+    //     env: item.environment_grade,
+    //     college: item.college_and_career_readiness,
+    //   }
+    //   scoreData.value.push(schoolScores)
+    // })
+
+    // console.log('scores', scoreData.value)
   } catch (error) {
     console.error('Error fetching', error)
   }
