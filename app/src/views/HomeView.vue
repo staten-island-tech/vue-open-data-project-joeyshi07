@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RadarChart :highSchool="highSchool" />
+    <RadarChart v-for="school in highSchool" :key="school.school_name" :school="school" />
     <SchoolCard
       v-for="(school, index) in highSchool"
       :key="school.school_name"
@@ -14,6 +14,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import SchoolCard from '../components/DataCards.vue'
+import RadarChart from '../components/RadarChart.vue'
 
 const highSchool = ref([])
 

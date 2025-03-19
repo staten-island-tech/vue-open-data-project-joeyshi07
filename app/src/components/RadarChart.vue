@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, computed } from 'vue'
 import { Radar } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -29,9 +29,7 @@ ChartJS.register(
 )
 
 const props = defineProps({
-  highSchool: {
-    type: Object,
-  },
+  school: Object,
 })
 
 const gradeToNumeric = (grade) => {
@@ -59,16 +57,15 @@ const formattedData = computed(() => {
     ],
     datasets: [
       {
-        label: 'School Grades',
         data: [
-          gradeToNumeric(props.highSchool.progress_grade),
-          gradeToNumeric(props.highSchool.performance_grade),
-          gradeToNumeric(props.highSchool.environment_grade),
-          gradeToNumeric(props.highSchool.college_and_career_readiness),
+          gradeToNumeric(props.school.progress_grade),
+          gradeToNumeric(props.school.performance_grade),
+          gradeToNumeric(props.school.environment_grade),
+          gradeToNumeric(props.school.college_and_career_readiness),
         ],
         fill: true,
         borderColor: '#42A5F5',
-        backgroundColor: 'rgba(66, 165, 245, 0.2)',
+        backgroundColor: 'rgba(66, 165, 245, 0.6)',
         tension: 0.4,
       },
     ],
@@ -81,7 +78,7 @@ const chartOptions = {
       min: 0,
       max: 100,
       ticks: {
-        stepSize: 10,
+        stepSize: 25,
       },
     },
   },
