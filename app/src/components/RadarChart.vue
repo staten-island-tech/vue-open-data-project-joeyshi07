@@ -16,12 +16,14 @@ import {
   RadialLinearScale,
   PointElement,
   LineElement,
+  Filler,
 } from 'chart.js'
 
 ChartJS.register(
   Title,
   Tooltip,
   Legend,
+  Filler,
   RadarController,
   RadialLinearScale,
   PointElement,
@@ -57,6 +59,7 @@ const formattedData = computed(() => {
     ],
     datasets: [
       {
+        label: props.school.school_name,
         data: [
           gradeToNumeric(props.school.progress_grade),
           gradeToNumeric(props.school.performance_grade),
@@ -65,8 +68,9 @@ const formattedData = computed(() => {
         ],
         fill: true,
         borderColor: '#42A5F5',
-        backgroundColor: 'rgba(66, 165, 245, 0.6)',
-        tension: 0.4,
+        borderWidth: 2,
+        backgroundColor: 'rgba(66, 165, 245, 0.3)',
+        tension: 0.1,
       },
     ],
   }
@@ -80,6 +84,11 @@ const chartOptions = {
       ticks: {
         stepSize: 25,
       },
+    },
+  },
+  elements: {
+    line: {
+      borderWidth: 2,
     },
   },
 }

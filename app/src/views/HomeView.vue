@@ -1,6 +1,14 @@
 <template>
   <div>
-    <RadarChart v-for="school in highSchool" :key="school.school_name" :school="school" />
+    <div>
+      <select id="school-select" v-model="selectedSchool">
+        <option v-for="school in highSchool" :key="school.school_name" :value="school">
+          {{ school.school_name }}
+        </option>
+      </select>
+
+      <RadarChart v-if="selectedSchool" :school="selectedSchool" />
+    </div>
     <SchoolCard
       v-for="(school, index) in highSchool"
       :key="school.school_name"
@@ -17,6 +25,7 @@ import SchoolCard from '../components/DataCards.vue'
 import RadarChart from '../components/RadarChart.vue'
 
 const highSchool = ref([])
+const selectedSchool = ref(null)
 
 const schoolScores = 'https://data.cityofnewyork.us/resource/dw8c-pxy2.json'
 
