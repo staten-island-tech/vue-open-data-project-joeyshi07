@@ -1,28 +1,22 @@
 <template>
   <div>
-    <!-- <SchoolCard
-      v-for="(school, index) in highSchool"
-      :key="school.school_name"
-      :school="school"
-      :index="index"
-    /> -->
-  </div>
-  <div>
-    <EnrollmentChart
-      v-if="highSchool.length"
-      :schools="highSchool"
-      :selectedBorough="selectedBorough"
-      @boroughSelected="updateSelectedBorough"
-    />
+    <h2>Scores for Different Features</h2>
+    <div>
+      <select id="school-select" v-model="selectedSchool">
+        <option v-for="school in highSchool" :key="school.school_name" :value="school">
+          {{ school.school_name }}
+        </option>
+      </select>
+
+      <RadarChart v-if="selectedSchool" :school="selectedSchool" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import SchoolCard from '../components/DataCards.vue'
 import RadarChart from '../components/RadarChart.vue'
-import EnrollmentChart from '../components/EnrollmentChart.vue'
 
 const highSchool = ref([])
 const selectedSchool = ref(null)

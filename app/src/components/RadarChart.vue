@@ -39,11 +39,13 @@ const gradeToNumeric = (grade) => {
     case 'A':
       return 100
     case 'B':
-      return 75
+      return 80
     case 'C':
-      return 50
+      return 60
     case 'D':
-      return 25
+      return 20
+    case 'F':
+      return 0
     default:
       return 0
   }
@@ -59,7 +61,7 @@ const formattedData = computed(() => {
     ],
     datasets: [
       {
-        label: props.school.school_name,
+        label: 'Scores',
         data: [
           gradeToNumeric(props.school.progress_grade),
           gradeToNumeric(props.school.performance_grade),
@@ -70,7 +72,7 @@ const formattedData = computed(() => {
         borderColor: '#42A5F5',
         borderWidth: 2,
         backgroundColor: 'rgba(66, 165, 245, 0.3)',
-        tension: 0.1,
+        tension: 0.05,
       },
     ],
   }
@@ -82,7 +84,7 @@ const chartOptions = {
       min: 0,
       max: 100,
       ticks: {
-        stepSize: 25,
+        stepSize: 20,
       },
     },
   },

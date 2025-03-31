@@ -5,9 +5,10 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
+    <h1>NYC High School Metrics in 2012-2013</h1>
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/">Home |</RouterLink>
+      <RouterLink to="/scores">Score Charts |</RouterLink>
     </nav>
   </header>
   <RouterView />
