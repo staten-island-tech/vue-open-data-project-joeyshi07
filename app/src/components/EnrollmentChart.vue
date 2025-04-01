@@ -50,7 +50,7 @@ const chartData = computed(() => {
     datasets: [
       {
         label: 'Total Enrollment',
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+        backgroundColor: ['#FF6384', '#42A5F5', '#FFCE56', '#4BC0C0', '#9966FF'],
         data: enrollmentCounts,
       },
     ],

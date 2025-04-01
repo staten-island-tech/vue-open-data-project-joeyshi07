@@ -13,19 +13,26 @@ import {
   Tooltip,
   Legend,
   RadialLinearScale,
+  ArcElement,
   PointElement,
   LineElement,
   Filler,
 } from 'chart.js'
 
-ChartJS.register(Title, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler)
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  RadialLinearScale,
+  PointElement,
+  ArcElement,
+  LineElement,
+  Filler,
+)
 
 const props = defineProps({
   school: Object,
 })
-
-const englishScores = parseFloat(props.school.average_english_proficiency)
-const mathScores = parseFloat(props.school.average_math_proficiency)
 
 const chartData = computed(() => {
   return {
@@ -33,9 +40,12 @@ const chartData = computed(() => {
     datasets: [
       {
         label: props.school.school_name,
-        data: [englishScores, mathScores],
-        backgroundColor: ['rgba(75, 192, 192, 0.5)', 'rgba(255, 99, 132, 0.5)'],
-        borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
+        data: [
+          parseFloat(props.school.average_english_proficiency),
+          parseFloat(props.school.average_math_proficiency),
+        ],
+        backgroundColor: ['rgba(255, 99, 132,0.5)', 'rgba(66, 165, 245, 0.5)'],
+        borderColor: ['#FF6384', '#42A5F5'],
         borderWidth: 1,
       },
     ],
@@ -49,6 +59,11 @@ const chartOptions = {
     r: {
       beginAtZero: true,
       suggestedMax: 5,
+    },
+  },
+  plugins: {
+    legend: {
+      display: true,
     },
   },
 }
