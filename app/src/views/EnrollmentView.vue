@@ -10,7 +10,6 @@ import { useRoute } from 'vue-router'
 import EnrollmentChart from '../components/EnrollmentChart.vue'
 
 const highSchool = ref([])
-const selectedSchool = ref(null)
 
 const schoolScores = 'https://data.cityofnewyork.us/resource/dw8c-pxy2.json'
 

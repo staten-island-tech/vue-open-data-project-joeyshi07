@@ -37,15 +37,15 @@ const props = defineProps({
 const gradeToNumeric = (grade) => {
   switch (grade) {
     case 'A':
-      return 100
+      return 5
     case 'B':
-      return 80
+      return 4
     case 'C':
-      return 60
+      return 3
     case 'D':
-      return 20
+      return 2
     case 'F':
-      return 0
+      return 1
     default:
       return 0
   }
@@ -82,9 +82,9 @@ const chartOptions = {
   scales: {
     r: {
       min: 0,
-      max: 100,
+      max: 5,
       ticks: {
-        stepSize: 20,
+        stepSize: 1,
       },
     },
   },
