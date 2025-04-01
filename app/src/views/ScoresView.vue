@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Scores for Different Features</h2>
-    <div>
+    <div class="radar">
       <select id="school-select" v-model="selectedSchool">
         <option v-for="school in highSchool" :key="school.school_name" :value="school">
           {{ school.school_name }}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="polar">
     <PolarArea v-if="chartData" :data="chartData" :options="chartOptions" />
   </div>
 </template>
@@ -54,11 +54,14 @@ const chartData = computed(() => {
 
 const chartOptions = {
   responsive: true,
-  maintainAspectRatio: false,
+  maintainAspectRatio: true,
   scales: {
     r: {
       beginAtZero: true,
       suggestedMax: 5,
+      ticks: {
+        stepSize: 1,
+      },
     },
   },
   plugins: {

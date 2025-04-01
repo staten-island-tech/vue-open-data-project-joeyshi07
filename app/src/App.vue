@@ -16,6 +16,9 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style scoped>
+header {
+  margin-right: 3rem;
+}
 nav {
   display: flex;
   gap: 1rem;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>English and Math Proficiency</h2>
-    <div>
+    <div class="polar">
       <select id="school-select" v-model="selectedSchool">
         <option v-for="school in highSchool" :key="school.school_name" :value="school">
           {{ school.school_name }}

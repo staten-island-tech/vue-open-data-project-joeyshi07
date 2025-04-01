@@ -29,8 +29,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-enrollment {
-  padding: 20%;
-}
-</style>
+<style scoped></style>
