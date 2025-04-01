@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Bar :chart-data="chartData" :chart-options="chartOptions" />
+    <Bar :data="chartData" :options="chartOptions" />
   </div>
 </template>
 
@@ -42,9 +42,7 @@ const chartData = computed(() => {
     const borough = getBorough(school.dbn)
 
     const index = boroughs.indexOf(borough)
-    if (index !== -1) {
-      enrollmentCounts[index] += parseInt(school.enrollment) || 0
-    }
+    enrollmentCounts[index] += parseInt(school.enrollment) || 0
   })
 
   return {
