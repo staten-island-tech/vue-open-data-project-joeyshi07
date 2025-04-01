@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="enrollment">
     <EnrollmentChart v-if="highSchool.length" :schools="highSchool" />
   </div>
 </template>
@@ -28,3 +28,9 @@ onMounted(() => {
   getData()
 })
 </script>
+
+<style scoped>
+enrollment {
+  padding: 20%;
+}
+</style>

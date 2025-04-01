@@ -5,12 +5,19 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <h1>NYC High School Metrics in 2012-2013</h1>
+    <h1>NYC High School Metrics: 2012-2013</h1>
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/enrollment">Enrollment |</RouterLink>
-      <RouterLink to="/scores">School Performance |</RouterLink>
+      <RouterLink to="/englishmath">English and Math Proficiency</RouterLink>
+      <RouterLink to="/enrollment">Enrollment</RouterLink>
+      <RouterLink to="/scores">School Performance</RouterLink>
     </nav>
   </header>
   <RouterView />
 </template>
+
+<style scoped>
+nav {
+  display: flex;
+  gap: 1rem;
+}
+</style>

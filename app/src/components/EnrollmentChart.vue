@@ -30,12 +30,12 @@ const getBorough = (dbn) => {
   if (code === 'K') return 'Brooklyn'
   if (code === 'R') return 'Staten Island'
   if (code === 'Q') return 'Queens'
-  if (code === 'X') return 'Bronx'
+  if (code === 'X') return 'The Bronx'
   return null
 }
 
 const chartData = computed(() => {
-  const boroughs = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx']
+  const boroughs = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'The Bronx']
   const enrollmentCounts = [0, 0, 0, 0, 0]
 
   props.schools.forEach((school) => {
