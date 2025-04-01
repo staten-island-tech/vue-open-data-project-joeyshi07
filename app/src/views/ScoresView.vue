@@ -37,8 +37,4 @@ async function getData() {
 onMounted(() => {
   getData()
 })
-
-onActivated(() => {
-  getData()
-})
 </script>
